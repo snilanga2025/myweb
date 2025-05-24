@@ -15,6 +15,7 @@
             <li><a href="#">Track Shipment</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <a href="#quote" class="nav-quote-button">Get A Quote</a>
     </nav>
 
     <header>
@@ -39,53 +40,132 @@
     </header>
 
     <section id="services">
-        <h2>Our Services</h2>
-        <div>
-            <h3>International Shipping</h3>
-            <p>Efficient and cost-effective shipping solutions for your global cargo needs, including customs clearance and documentation.</p>
+        <h2>Our Core Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">✈️</div>
+                <h3>Air Freight</h3>
+                <p>Reliable and timely air freight solutions to meet your global shipping needs, connecting major hubs worldwide.</p>
+                <a href="#" class="learn-more-link">Learn More</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚢</div>
+                <h3>Sea Freight</h3>
+                <p>Cost-effective sea freight options for large shipments, offering FCL and LCL services to all continents.</p>
+                <a href="#" class="learn-more-link">Learn More</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Land Freight</h3>
+                <p>Comprehensive domestic and cross-border land transportation, including FTL, LTL, and rail options.</p>
+                <a href="#" class="learn-more-link">Learn More</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Warehousing</h3>
+                <p>Secure warehousing and distribution services, with inventory management and value-added logistics.</p>
+                <a href="#" class="learn-more-link">Learn More</a>
+            </div>
         </div>
-        <div>
-            <h3>Domestic Freight</h3>
-            <p>Comprehensive domestic freight services, offering full truckload (FTL) and less-than-truckload (LTL) options.</p>
-        </div>
-        <div>
-            <h3>Warehousing Solutions</h3>
-            <p>Secure and flexible warehousing options to store your goods, with inventory management and distribution services.</p>
-        </div>
-        <div>
-            <h3>Express Delivery</h3>
-            <p>Fast and reliable express delivery services for time-sensitive shipments, ensuring prompt delivery to any location.</p>
+    </section>
+
+    <section id="about-us-home">
+        <h2>Your Trusted Logistics Partner</h2>
+        <p>Founded with a commitment to excellence, YourShippingCompany has grown to be a leading name in global logistics. We pride ourselves on providing reliable, efficient, and customized shipping solutions to businesses of all sizes.</p>
+        <p>Our experienced team, state-of-the-art technology, and extensive network allow us to handle your cargo with precision and care, ensuring it reaches its destination safely and on time.</p>
+        <a href="#" class="btn btn-secondary">Read More About Us</a>
+    </section>
+
+    <section id="why-choose-us">
+        <h2>Why Partner With Us?</h2>
+        <div class="achievements-grid">
+            <div class="achievement-item">
+                <div class="achievement-icon">⭐</div>
+                <h3>10+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">🌍</div>
+                <h3>200+</h3>
+                <p>Global Destinations</p>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">😊</div>
+                <h3>99%</h3>
+                <p>Satisfied Clients</p>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">⏰</div>
+                <h3>24/7</h3>
+                <p>Customer Support</p>
+            </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Contact Us</h2>
+        <h2>Get In Touch</h2>
         <form action="#" method="post">
-            <div>
-                <label for="name">Name:</label>
+            <div class="form-group">
+                <label for="name">Your Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div>
-                <label for="email">Email:</label>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div>
+            <div class="form-group">
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" required>
             </div>
-            <div>
-                <label for="message">Message:</label>
+            <div class="form-group">
+                <label for="message">Your Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
             </div>
-            <div>
-                <button type="submit">Send Message</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Send Message</button>
             </div>
         </form>
     </section>
 
     <footer>
-        <p>© 2023 YourShippingCompany. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>YourShippingCompany</h4>
+                <p>Your reliable partner in global logistics, delivering excellence and trust with every shipment.</p>
+            </div>
+            <div class="footer-column">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about-us-home">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Our Services</h5>
+                <ul>
+                    <li><a href="#services">Air Freight</a></li>
+                    <li><a href="#services">Sea Freight</a></li>
+                    <li><a href="#services">Land Freight</a></li>
+                    <li><a href="#services">Warehousing</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contact Us</h5>
+                <p>123 Shipping Lane, Logistix City, LC 12345</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@yourshippingcompany.com</p>
+                <div class="social-icons">
+                    <a href="#">FB</a>
+                    <a href="#">TW</a>
+                    <a href="#">LI</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 YourShippingCompany. All rights reserved.</p>
+        </div>
     </footer>
     <script src="slider.js"></script>
 </body>

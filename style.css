@@ -1,43 +1,419 @@
+:root {
+    --primary-bg: #000080; /* Navy */
+    --primary-text: #FFFFFF;
+    --accent-color: #007bff; /* Medium vibrant blue */
+    --secondary-bg: #001f54; /* Slightly different dark blue */
+    --card-bg: #00296b; /* For cards or distinct sections */
+    --text-light: #f8f9fa; /* Lighter text for emphasis on dark backgrounds */
+    --link-hover-color: #4dabf7; /* Lighter blue for link hover */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #000080; /* Navy blue */
-    color: #FFFFFF; /* White */
-    font-family: sans-serif; /* Basic sans-serif font */
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
-nav {
-    padding: 1em;
-    margin-bottom: 1em;
-    background-color: #000040; /* Darker blue for nav */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-text); /* Explicitly set, though inherit would work */
+    font-weight: 600; /* Slightly bolder */
+    margin-top: 1em;
+    margin-bottom: 0.5em;
 }
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.75em; }
+
+p {
+    color: var(--primary-text); /* Explicitly set, though inherit would work */
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--text-light); /* Use a slightly lighter shade for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Adjusting old section background colors */
+/* Updated Navigation Styles */
+nav {
+    background-color: var(--secondary-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 1em; /* Keep existing margin-bottom */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1.5rem; /* Space between links */
+}
+
+nav ul li a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: bold;
+    padding-bottom: 0.25rem; /* Space for border-bottom on hover */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.nav-quote-button {
+    background-color: var(--accent-color);
+    color: var(--primary-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.nav-quote-button:hover {
+    background-color: var(--link-hover-color); /* Using link-hover-color as a slightly different shade */
+}
+
 
 header {
-    padding: 2em;
+    padding: 0; /* Remove padding if slider is meant to be full width of this container */
     margin-bottom: 1em;
-    background-color: #000060; /* Slightly lighter blue for header */
+    /* background-color: var(--primary-bg); Removed, slider-container has its own or images cover */
 }
 
+/* General section styling - will be overridden by #services if needed */
 section {
-    padding: 1.5em;
+    padding: 1.5em; /* Default padding */
     margin-bottom: 1em;
-    background-color: #000050; /* A different shade for sections */
+    background-color: var(--primary-bg); /* Default to primary background */
 }
 
-footer {
-    padding: 1em;
-    margin-top: 1em;
-    background-color: #000030; /* Darkest blue for footer */
+/* Styles for "Our Services" Section */
+#services {
+    background-color: var(--primary-bg); /* Explicitly set for this section */
+    padding: 3rem 2rem;
     text-align: center;
 }
 
-/* Slider Styles */
+#services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--primary-text);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: left; /* Reset text-align for card content */
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* border: 1px solid var(--accent-color); */ /* Optional accent border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-text);
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: var(--primary-text); 
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.learn-more-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: auto; /* Pushes the link to the bottom if cards have varying text heights */
+}
+
+.learn-more-link:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-text);
+}
+
+/* Contact Section still uses default section styles or can be customized later */
+#contact {
+     background-color: var(--card-bg); /* Example: Make contact section use card-bg */
+}
+
+/* About Us Home Section Styles */
+#about-us-home {
+    padding: 3rem 2rem;
+    background-color: var(--secondary-bg); /* Alternate background for visual separation */
+    text-align: center;
+}
+
+#about-us-home h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-text);
+}
+
+#about-us-home p {
+    font-size: 1.1rem;
+    color: var(--primary-text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 1rem auto; /* Center block, add bottom margin */
+    text-align: left; /* Ensure paragraphs are left-aligned for readability */
+}
+
+/* General Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem; /* Default top margin for buttons in this context */
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-text);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 90%, black);
+    color: var(--primary-text); /* Ensure text color remains consistent */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-text);
+    transform: translateY(-2px);
+}
+
+/* Why Choose Us / Achievements Section Styles */
+#why-choose-us {
+    padding: 3rem 2rem;
+    background-color: var(--primary-bg); /* Alternating background */
+    text-align: center;
+}
+
+#why-choose-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--primary-text);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.achievement-item {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.achievement-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.achievement-item h3 {
+    font-size: 2.2rem;
+    color: var(--primary-text);
+    margin-bottom: 0.25rem;
+}
+
+.achievement-item p {
+    font-size: 1rem;
+    color: var(--primary-text);
+    line-height: 1.5;
+}
+
+/* Contact Section Styles */
+#contact {
+    padding: 3rem 2rem;
+    background-color: var(--secondary-bg); /* Alternate with previous section */
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-text);
+}
+
+#contact form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+#contact label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-text);
+    font-weight: bold;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--accent-color);
+    background-color: var(--primary-bg); /* Darker background for inputs */
+    color: var(--primary-text);
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Explicitly set */
+}
+
+#contact textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Specific styling for the submit button in the contact form */
+#contact button[type="submit"].btn-primary {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-top: 0; /* Reset margin from general .btn if needed, as form-group provides it */
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--secondary-bg); /* Using a predefined dark blue */
+    color: var(--primary-text);
+    padding: 3rem 2rem 1rem 2rem;
+    margin-top: 2rem; /* Ensure some space above footer */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column h4, .footer-column h5 {
+    color: var(--accent-color); /* Accent color for headings */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-column p, .footer-column li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column a {
+    color: var(--primary-text); /* Standard text color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: var(--primary-text);
+    margin-right: 0.75rem; /* Spacing between icons */
+    font-size: 1.5rem; /* Placeholder size */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--accent-color); /* Using accent color for border */
+    font-size: 0.9rem;
+    color: #AAA; /* Muted color for copyright */
+}
+
+/* Slider Styles - Adjusting to new color scheme */
 .slider-container {
     position: relative;
-    height: 60vh; /* 60% of the viewport height */
+    height: 60vh; /* Substantial height, adjust to 70vh if more impact is desired */
     width: 100%;
     overflow: hidden;
-    background-color: #000020; /* Very dark blue, can be removed if images cover it */
+    background-color: #000020; /* Very dark background, mostly hidden by images */
 }
 
 .slide {
@@ -60,10 +436,16 @@ footer {
 
 .caption {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    color: #FFFFFF;
-    padding: 10px 15px;
-    border-radius: 5px; /* Optional: rounded corners for the caption */
+    bottom: 10%; /* Positioned 10% from the bottom */
+    left: 5%;   /* Positioned 5% from the left */
+    max-width: 80%; /* Prevents caption from being too wide */
+    background-color: rgba(0, 0, 0, 0.7); /* More opaque dark background */
+    color: var(--primary-text); /* White text */
+    padding: 1rem 1.5rem; /* Generous padding */
+    border-radius: 5px; /* Softer edges */
+    text-align: left;   /* Align text to the left */
+    font-size: 1.2rem;  /* Larger font size */
+    line-height: 1.5;   /* Improved line spacing */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Subtle text shadow for pop */
+    /* Ensure previous properties like font-size, bottom, left, padding, bg-color, color are overridden */
 }
