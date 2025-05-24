@@ -1,0 +1,361 @@
+/* Global Resets and Base Styles */
+:root {
+    --primary-color: #007bff; /* Vibrant Blue */
+    --secondary-color: #6c757d; /* Grey - for secondary elements or text */
+    --success-color: #28a745; /* Green */
+    --danger-color: #dc3545;  /* Red */
+    --warning-color: #ffc107; /* Yellow */
+    --info-color: #17a2b8;    /* Teal/Info Blue */
+    
+    --light-bg: #f8f9fa; /* Light grey for body background */
+    --white-bg: #ffffff; /* White for cards, containers */
+    
+    --text-dark: #343a40; /* Dark grey for text */
+    --text-light: #ffffff; /* White text for dark backgrounds */
+    --text-muted: #6c757d; /* Muted grey text */
+
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --border-radius: 0.25rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --box-shadow-lg: 0 1rem 3rem rgba(0,0,0,.175);
+
+    /* Explicit hover colors as darken() is not standard CSS */
+    --primary-hover-color: #0056b3;
+    --success-hover-color: #1e7e34;
+    --danger-hover-color: #c82333;
+    --warning-hover-color: #e0a800; /* Slightly darker yellow for text contrast */
+    --info-hover-color: #117a8b;
+    --secondary-hover-color: #545b62;
+    --text-light-hover-color: #e2e6ea; /* For white text on dark bg hover */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-dark);
+    background-color: var(--light-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+h1 { font-size: 2.25rem; color: var(--primary-color); }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover {
+    color: var(--primary-hover-color); /* Use variable for hover */
+    text-decoration: underline;
+}
+
+/* Utility Classes */
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.25rem !important; } .mt-2 { margin-top: 0.5rem !important; } .mt-3 { margin-top: 1rem !important; } .mt-4 { margin-top: 1.5rem !important; } .mt-5 { margin-top: 3rem !important; }
+.mb-1 { margin-bottom: 0.25rem !important; } .mb-2 { margin-bottom: 0.5rem !important; } .mb-3 { margin-bottom: 1rem !important; } .mb-4 { margin-bottom: 1.5rem !important; } .mb-5 { margin-bottom: 3rem !important; }
+.p-3 { padding: 1rem !important; } .p-4 { padding: 1.5rem !important; } .p-5 { padding: 3rem !important; }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: var(--text-light);
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: var(--border-radius);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); color: var(--text-light); }
+.btn-primary:hover { background-color: var(--primary-hover-color); border-color: var(--primary-hover-color); }
+.btn-success { background-color: var(--success-color); border-color: var(--success-color); color: var(--text-light); }
+.btn-success:hover { background-color: var(--success-hover-color); border-color: var(--success-hover-color); }
+.btn-danger { background-color: var(--danger-color); border-color: var(--danger-color); color: var(--text-light); }
+.btn-danger:hover { background-color: var(--danger-hover-color); border-color: var(--danger-hover-color); }
+.btn-warning { background-color: var(--warning-color); border-color: var(--warning-color); color: var(--text-dark); }
+.btn-warning:hover { background-color: var(--warning-hover-color); border-color: var(--warning-hover-color); }
+.btn-info { background-color: var(--info-color); border-color: var(--info-color); color: var(--text-light); }
+.btn-info:hover { background-color: var(--info-hover-color); border-color: var(--info-hover-color); }
+.btn-secondary { background-color: var(--secondary-color); border-color: var(--secondary-color); color: var(--text-light); }
+.btn-secondary:hover { background-color: var(--secondary-hover-color); border-color: var(--secondary-hover-color); }
+.btn-block { display: block; width: 100%; }
+
+/* Forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-dark);
+    background-color: var(--white-bg);
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Using direct RGB for primary color alpha */
+}
+.form-control[type="file"] { height: auto; padding: 0.275rem 0.75rem; }
+label { display: inline-block; margin-bottom: 0.5rem; font-weight: 500; }
+.error-message, .form-group .error { color: var(--danger-color); font-size: 0.875em; margin-top: 0.25rem; }
+.success-message { color: var(--success-color); font-size: 0.875em; margin-top: 0.25rem; }
+.form-note { font-size: 0.875em; color: var(--text-muted); }
+
+/* Card / Box for forms */
+.form-container, .card-container {
+    background-color: var(--white-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-lg);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.form-container h1, .card-container h1,
+.form-container h2, .card-container h2 { /* Added h2 for login form */
+    margin-bottom: 1.5rem; 
+    text-align: center;
+}
+
+
+/* Admin Dashboard Header */
+.dashboard-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+.dashboard-header .logo a {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+.dashboard-header nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+}
+.dashboard-header nav a:hover {
+    text-decoration: underline;
+    color: var(--text-light-hover-color); /* Use variable for hover */
+}
+.dashboard-header span { margin-right: 1rem; }
+
+
+/* Student List Table */
+.students-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: var(--white-bg);
+    border-collapse: collapse; 
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden; 
+}
+.students-table th,
+.students-table td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle; /* Changed from top to middle for better look */
+    border-top: 1px solid #dee2e6; 
+}
+.students-table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--primary-color); 
+    background-color: var(--light-bg); 
+    color: var(--primary-color);
+    font-weight: 500;
+    text-align: left;
+}
+.students-table tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02); /* Kept very light striping */
+}
+.students-table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.075); /* Light primary color on hover, direct RGB for alpha */
+}
+.students-table img.profile-thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #dee2e6;
+}
+.students-table .actions a { /* Using .btn for consistency */
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+.students-table .actions a.edit { background-color: var(--warning-color); color: var(--text-dark); border-color: var(--warning-color); }
+.students-table .actions a.edit:hover { background-color: var(--warning-hover-color); border-color: var(--warning-hover-color); }
+.students-table .actions a.delete { background-color: var(--danger-color); color: var(--text-light); border-color: var(--danger-color); }
+.students-table .actions a.delete:hover { background-color: var(--danger-hover-color); border-color: var(--danger-hover-color); }
+
+.no-students {
+    background-color: var(--white-bg);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Profile Image Display on Edit Form */
+.profile-image-current { margin-bottom: 10px; text-align: center; }
+.profile-image-current img { 
+    max-width: 150px; 
+    max-height: 150px; 
+    border-radius: var(--border-radius); 
+    border: 1px solid #dee2e6; 
+    box-shadow: var(--box-shadow);
+}
+.profile-image-current p { font-size: 0.9em; color: var(--text-muted); margin-bottom: 0.25rem; }
+
+
+/* Login Page Specific */
+.login-container { 
+    background-color: var(--white-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-lg);
+    width: 100%;
+    max-width: 400px; 
+    margin: auto; 
+}
+.login-container h2 { text-align: center; margin-bottom: 1.5rem; color: var(--primary-color); }
+.login-err { 
+    color: var(--danger-color); 
+    text-align: center; 
+    margin-bottom:1rem; 
+    font-size: 0.9em; 
+    background-color: #f8d7da;
+    border: 1px solid var(--danger-color);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+
+/* Student Registration Page Specific */
+/* Uses .form-container defined above */
+
+
+/* General Page Structure for Admin Area */
+.admin-content-container {
+    padding: 1.5rem;
+    background-color: var(--white-bg);
+    margin: 1.5rem; 
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.admin-content-container > h1 { /* Direct child h1 */
+    color: var(--primary-color);
+    border-bottom: 1px solid #dee2e6; 
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem; 
+}
+
+/* General messages styling */
+.message-general, .general-error, .general-success {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+.general-error {
+    color: #721c24; 
+    background-color: #f8d7da; 
+    border-color: #f5c6cb; 
+}
+.general-success, .success-message {
+    color: #155724; 
+    background-color: #d4edda; 
+    border-color: #c3e6cb; 
+}
+.general-warning {
+    color: #856404; 
+    background-color: #fff3cd; 
+    border-color: #ffeeba; 
+}
+
+/* Index page specific styling */
+.index-body { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.index-body h1 {
+    color: var(--text-dark); 
+    margin-bottom: 2rem;
+}
+.index-links a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem; 
+    margin: 0.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1.1em; 
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: var(--box-shadow);
+}
+.index-links a:hover {
+    text-decoration: none;
+    transform: translateY(-2px); 
+    box-shadow: var(--box-shadow-lg);
+}
+.index-links .student-link { background-color: var(--success-color); }
+.index-links .student-link:hover { background-color: var(--success-hover-color); color: var(--text-light); }
+.index-links .admin-link { background-color: var(--info-color); }
+.index-links .admin-link:hover { background-color: var(--info-hover-color); color: var(--text-light); }
+
+/* Ensure that the CSS is applied by linking correctly in HTML heads */
+/* e.g. <link rel="stylesheet" href="../assets/main_style.css"> or <link rel="stylesheet" href="assets/main_style.css"> */
+/* This version includes explicit hover color variables and uses direct RGB for alpha in box-shadow */
+```
