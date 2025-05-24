@@ -1,0 +1,32 @@
+body {
+    background-color: #000080; /* Navy blue */
+    color: #FFFFFF; /* White */
+    font-family: sans-serif; /* Basic sans-serif font */
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: #000040; /* Darker blue for nav */
+}
+
+header {
+    padding: 2em;
+    margin-bottom: 1em;
+    background-color: #000060; /* Slightly lighter blue for header */
+}
+
+section {
+    padding: 1.5em;
+    margin-bottom: 1em;
+    background-color: #000050; /* A different shade for sections */
+}
+
+footer {
+    padding: 1em;
+    margin-top: 1em;
+    background-color: #000030; /* Darkest blue for footer */
+    text-align: center;
+}
